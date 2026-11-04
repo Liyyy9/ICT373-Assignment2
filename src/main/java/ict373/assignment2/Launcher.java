@@ -1,7 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Title: ICT373 Assignment 2
+ * Author: Liyana Afiqah Binte Jazmi
+ * Student ID: 35849414
+ * Date: 08 November 2026
+ * File Name: Launcher.java
+ * Purpose:
+ * Assumptions:
  */
-
 package ict373.assignment2;
 
 /**

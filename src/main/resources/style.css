@@ -1,0 +1,96 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Nov 4, 2026, 10:31:33 PM
+    Author     : ues
+*/
+
+.root {
+    -fx-font-family: "Aptos";
+    -fx-font-size: 13px;
+    -fx-background-color: #F7F8FA;
+}
+
+/* Application heading */
+.app-header {
+    -fx-font-family: "Aptos Display";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #26364A;
+}
+/* Sidebar and information panels */
+.content-panel {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-color: #D1D5DB;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-padding: 12px;
+}
+
+/* Panel section headings */
+.panel-heading {
+    -fx-font-family: "Aptos";
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+}
+
+/* Menu bar */
+.menu-bar {
+    -fx-font-family: "Aptos";
+    -fx-font-size: 13px;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 0 0 1px 0;
+}
+
+/* Spacing between menu items */
+.menu-bar .menu {
+    -fx-padding: 5px 25px;
+}
+
+/* Clean list */
+.clean-list {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/* Remove alternating grey rows */
+.clean-list .list-cell,
+.clean-list .list-cell:odd,
+.clean-list .list-cell:even {
+    -fx-background-color: transparent;
+    -fx-text-fill: #334155;
+    -fx-padding: 8px 10px;
+}
+
+/* Hover effect */
+.clean-list .list-cell:filled:hover {
+    -fx-background-color: #F1F5F9;
+    -fx-background-radius: 5px;
+}
+
+/* Selected supplement */
+.clean-list .list-cell:filled:selected {
+    -fx-background-color: #DBEAFE;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #1E40AF;
+}
+
+/* Remove focus border */
+.clean-list:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+/* Remove the white/grey ListView viewport */
+.clean-list .virtual-flow,
+.clean-list .virtual-flow .clipped-container,
+.clean-list .virtual-flow .sheet {
+    -fx-background-color: transparent;
+}
