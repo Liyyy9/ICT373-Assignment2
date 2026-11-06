@@ -9,6 +9,7 @@
  */
 package ict373.assignment2;
 
+import java.util.concurrent.TimeUnit;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -40,6 +41,8 @@ public class MainView {
     private FXLeftPanel fxLeftPanel;
     private FXRightPanel fxRightPanel;
     
+    private Magazine magazine;
+    
     public MainView(Stage stage) {
         this.stage = stage;
         buildUI();
@@ -54,19 +57,58 @@ public class MainView {
         VBox top = new VBox(fxHeader, fxMenu);
         layout.setTop(top);
 
-        Magazine magazine = new Magazine();
-
-        magazine.addSupplement(new Supplement("Science", 2.50));
-        magazine.addSupplement(new Supplement("Technology", 3.00));
-        magazine.addSupplement(new Supplement("Cooking", 1.50));
+        magazine = new Magazine();
         
-        magazine.addCustomer(new Customer("Liyana", "liyana@gmail.com"));
-        magazine.addCustomer(new Customer("Tan", "tan@gmail.com"));
-        magazine.addCustomer(new Customer("Mina", "mina@gmail.com"));
-
+        MagazineDefaultData.constructSupplements(magazine);
+        MagazineDefaultData.constructCustomers(magazine);
+        
+//        PaymentMethod payment1 = new PaymentMethod(1, "456789");
+//        PaymentMethod payment2 = new PaymentMethod(1, "954123");
+//        PaymentMethod payment3 = new PaymentMethod(1, "785125");
+//
+//        Supplement science = new Supplement("Science", 2.50);
+//        Supplement technology = new Supplement("Technology", 3.00);
+//        Supplement cooking = new Supplement("Cooking", 1.50);
+//        
+//        magazine.addSupplement(science);
+//        magazine.addSupplement(technology);
+//        magazine.addSupplement(cooking);
+//        
+//        PayingCustomer liyana = new PayingCustomer("Liyana", "liyana@gmail.com", 42, "Wattle Cresent", "Greenvale", 3059, payment1);
+//        PayingCustomer tan = new PayingCustomer("Tan", "tan@gmail.com", 118, "Flinders Lane", "Melbourne", 3000, payment2);
+//        PayingCustomer mina = new PayingCustomer("Mina", "mina@gmail.com", 7, "Ocean Breeze Drive", "Shellharbour", 2529, payment3);
+//        AssociateCustomer megan = new AssociateCustomer("Megan", "megan@gmail.com", 7, "Ocean Breeze Drive", "Shellharbour", 2529, mina);
+//        AssociateCustomer paul = new AssociateCustomer("Paul", "paul@gmail.com", 7, "Ocean Breeze Drive", "Shellharbour", 2529, mina);
+//        
+//        liyana.addSupplement(science); 
+//        tan.addSupplement(technology); 
+//        mina.addSupplement(cooking); 
+//        mina.addSupplement(science); 
+//        megan.addSupplement(science);
+//        megan.addSupplement(cooking);
+//        megan.addSupplement(technology);
+//        paul.addSupplement(technology);
+//
+//        mina.addAssociateCustomer(megan);
+//        mina.addAssociateCustomer(paul);
+//        
+//        magazine.addCustomer(liyana);
+//        magazine.addCustomer(tan);
+//        magazine.addCustomer(mina);
+//        magazine.addCustomer(megan);
+//        magazine.addCustomer(paul);
+//        
         fxRightPanel = new FXRightPanel();
         fxLeftPanel = new FXLeftPanel(magazine, fxRightPanel);
-        
+//        
+//        PayingCustomer thalia = new PayingCustomer("Thalia", "thalia@gmail.com", 257, "Eucalyptus Road", "Willow Creek", 5251, payment3);
+//        thalia.addSupplement(science); 
+//        thalia.addSupplement(technology); 
+//        thalia.addSupplement(cooking); 
+//        
+//        magazine.addCustomer(thalia);
+//        
+//        fxLeftPanel.refreshCustomers();
         
         layout.setLeft(fxLeftPanel);
         layout.setCenter(fxRightPanel);

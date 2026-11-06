@@ -32,8 +32,8 @@ public class PayingCustomer extends Customer {
      * @param email email of the customer
      * @param paymentMethod payment method used by the customer
      */
-    public PayingCustomer(String name, String email, PaymentMethod paymentMethod){
-        super(name, email);
+    public PayingCustomer(String name, String email, int streetNumber, String streetName, String suburb, int postcode, PaymentMethod paymentMethod){
+        super(name, email, streetNumber, streetName, suburb, postcode);
         this.paymentMethod = paymentMethod;
     }
     

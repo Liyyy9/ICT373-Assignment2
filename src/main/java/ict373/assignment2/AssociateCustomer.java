@@ -31,8 +31,8 @@ public class AssociateCustomer extends Customer {
      * @param email email of the associate customer
      * @param payingCustomer the paying customer who covers this associate's subscription
      */
-    public AssociateCustomer(String name, String email, PayingCustomer payingCustomer) {
-        super(name, email);
+    public AssociateCustomer(String name, String email, int streetNumber, String streetName, String suburb, int postcode, PayingCustomer payingCustomer) {
+        super(name, email, streetNumber, streetName, suburb, postcode);
         this.payingCustomer = payingCustomer;
     }
     

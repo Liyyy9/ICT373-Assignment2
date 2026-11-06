@@ -10,10 +10,13 @@
 
 package ict373.assignment2;
 
+import java.util.ArrayList;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 
 
@@ -26,6 +29,8 @@ public class FXRightPanel extends VBox{
 
     private VBox infoPanel;
     private Label infoHeading;
+    private Label subscribedSuppl;
+    private StringBuilder sb;
     
     public FXRightPanel() {
         setPadding(new Insets(10));
@@ -48,6 +53,7 @@ public class FXRightPanel extends VBox{
     }
     
     public void showSupplement(Supplement supplement) {
+        infoPanel.getChildren().clear();
         
         Label suppHeading = new Label(supplement.getName());
         suppHeading.getStyleClass().add("panel-heading");
@@ -63,15 +69,119 @@ public class FXRightPanel extends VBox{
     
     public void showCustomer(Customer customer) {
         
+        infoPanel.getChildren().clear();
+        
         Label custHeading = new Label(customer.getName());
         custHeading.getStyleClass().add("panel-heading");
         custHeading.setPadding(new Insets(10,0,0,20));
         
-        Label email = new Label(
-                String.format("Email: %s", customer.getEmail())
+        Text emailLabel = new Text("Email: ");
+        emailLabel.getStyleClass().add("info-label");
+
+        Text emailValue = new Text(customer.getEmail() + "\n");
+        emailValue.getStyleClass().add("info-value");
+                
+        Text addressLabel = new Text("Address: ");
+        addressLabel.getStyleClass().add("info-label");
+
+        Text addressValue = new Text(customer.getAddress() + "\n");
+        addressValue.getStyleClass().add("info-value");
+        
+        TextFlow details = new TextFlow(
+            emailLabel, emailValue,
+            addressLabel, addressValue
         );
-        email.setPadding(new Insets(10,0,0,20));
-       
-        infoPanel.getChildren().setAll(infoHeading, custHeading, email);
+        
+        details.setPadding(new Insets(10,0,0,20));
+        infoPanel.getChildren().addAll(infoHeading, custHeading, details);
+        
+        if(customer instanceof PayingCustomer){
+            PayingCustomer pc = (PayingCustomer) customer;
+            PaymentMethod payMethod = pc.getPaymentMethod();
+            
+            String paymentType;
+            if(payMethod.getType() == 1) {
+                paymentType = "Credit Card";
+            } else {
+                paymentType = "Direct Debit";
+            }
+            
+            Label paymentMethodLabel = new Label("Payment Method:\n");
+            paymentMethodLabel.getStyleClass().add("info-label");
+            paymentMethodLabel.setPadding(new Insets(10,0,0,20));
+            infoPanel.getChildren().add(paymentMethodLabel);
+            
+            String number = pc.getPaymentMethod().getNumber();
+
+            Label paymentTypeValue = new Label(paymentType);
+
+            Label cardValue = new Label(
+                "Ending in " + number.substring(Math.max(0, number.length() - 4))
+            );
+
+            paymentTypeValue.getStyleClass().add("info-value");
+            cardValue.getStyleClass().add("info-value");
+
+            VBox paymentDetails = new VBox(paymentTypeValue, cardValue);
+            paymentDetails.setPadding(new Insets(0, 0, 0, 40));
+            
+            infoPanel.getChildren().add(paymentDetails);
+            
+            Label associateLabel = new Label("Associates: \n");
+            associateLabel.getStyleClass().add("info-label");
+            associateLabel.setPadding(new Insets(10,0,0,20));
+           
+            ArrayList<AssociateCustomer> pcAssociates = ((PayingCustomer) customer).getAssociates();
+            
+            if(pcAssociates.isEmpty()){
+                Label noAssociates = new Label("None\n");
+                noAssociates.setPadding(new Insets(10,0,0,40));
+                noAssociates.getStyleClass().add("info-value");
+                
+                infoPanel.getChildren().addAll(associateLabel, noAssociates);
+
+            } else {
+                sb = new StringBuilder();
+                for(AssociateCustomer pcAssociate: pcAssociates) {
+                    sb.append(pcAssociate.getName()).append("\n");
+                }
+                Label associateCusts = new Label(sb.toString());
+                associateCusts.setPadding(new Insets(10,0,0,40));
+
+                infoPanel.getChildren().addAll(associateLabel, associateCusts);
+            }
+            
+        } else {
+            Text payingLabel = new Text("Paid for by: ");
+            payingLabel.getStyleClass().add("info-label");
+
+            Text payingValue = new Text(
+                ((AssociateCustomer) customer).getPayingCustomer().getName()
+            );
+
+            TextFlow paying = new TextFlow(payingLabel, payingValue);
+            paying.setPadding(new Insets(10,0,0,20)); 
+            paying.getStyleClass().add("info-value");
+            
+            infoPanel.getChildren().add(paying);
+            
+        }
+        
+        Label suppLabel = new Label ("Supplements: \n");
+        suppLabel.getStyleClass().add("info-label");
+        suppLabel.setPadding(new Insets(10,0,0,20));       
+        
+        ArrayList<Supplement> supplements = customer.getSupplements();
+        sb = new StringBuilder();
+        for(Supplement supplement : supplements){
+            sb.append(supplement.getName()).append("\n");
+        }
+        
+        subscribedSuppl = new Label(sb.toString());
+        subscribedSuppl.setPadding(new Insets(10,0,0,40));
+        subscribedSuppl.getStyleClass().add("info-value");
+        
+        infoPanel.getChildren().addAll(suppLabel, subscribedSuppl);
+        
     }
 }

@@ -28,16 +28,20 @@ import javafx.scene.layout.VBox;
 public class FXLeftPanel extends VBox {
     private VBox suppPanel;
     private VBox custPanel;
+    private ListView<Supplement> suppListView;
+    private ListView<Customer> custListView;
+    private Magazine magazine;
     
     public FXLeftPanel(Magazine magazine, FXRightPanel rightPanel) {
+        this.magazine = magazine;
         setPadding(new Insets(10));
         setSpacing(10);
         buildUI();
         
         ObservableList<Supplement> supplements = FXCollections.observableArrayList(magazine.getSupplements());
-        ListView<Supplement> suppListView = new ListView<>(supplements);
+        suppListView = new ListView<>(supplements);
         ObservableList<Customer> customers = FXCollections.observableArrayList(magazine.getCustomers());
-        ListView<Customer> custListView = new ListView<>(customers);
+        custListView = new ListView<>(customers);
         
         Label suppHeading = new Label("List of Supplements"); 
         suppHeading.getStyleClass().add("panel-heading");
@@ -66,6 +70,7 @@ public class FXLeftPanel extends VBox {
         });
         
         VBox.setVgrow(suppListView, Priority.ALWAYS);
+        VBox.setVgrow(custListView, Priority.ALWAYS);
         suppPanel.getChildren().addAll(suppHeading, suppListView);
         custPanel.getChildren().addAll(custHeading, custListView);
     }
@@ -87,5 +92,13 @@ public class FXLeftPanel extends VBox {
         custPanel.setMaxHeight(Double.MAX_VALUE);
         
         getChildren().addAll(suppPanel, custPanel);
+    }
+    
+    public void refreshCustomers(){
+        custListView.getItems().setAll(magazine.getCustomers());
+    }
+    
+    public void refreshSupplements(){
+        suppListView.getItems().setAll(magazine.getSupplements());
     }
 }

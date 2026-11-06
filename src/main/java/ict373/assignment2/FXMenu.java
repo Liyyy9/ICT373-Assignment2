@@ -44,8 +44,6 @@ public class FXMenu extends HBox {
         editMenu.getItems().addAll(editCust, editSupp);
         menuBar.getMenus().addAll(viewMenu, createMenu, editMenu);
         
-        menuBar.getStylesheets().add("menu-bar");
-        
         getChildren().add(menuBar);
         HBox.setHgrow(menuBar, Priority.ALWAYS);
     }

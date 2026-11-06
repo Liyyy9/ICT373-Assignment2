@@ -23,13 +23,14 @@ import java.util.ArrayList;
 public class Customer {
     private String name;
     private String email;
+    private String address;
     private ArrayList<Supplement> supplements = new ArrayList<>();
     
     /**
      * Creates a customer with default name and email.
      */
     public Customer(){
-        this("Jane Doe", "jane.doe@gmail.com");
+        this("Jane Doe", "jane.doe@gmail.com", 123, "Applewood Ave", "Highland", 241514);
     }
 
     /**
@@ -38,9 +39,11 @@ public class Customer {
      * @param name name of the customer
      * @param email email of the customer
      */
-    public Customer(String name, String email){
+    public Customer(String name, String email, int streetNumber, String streetName, String suburb, int postcode){
         setName(name);
         setEmail(email);
+        String address = String.format("%d %s, %s (%d)", streetNumber, streetName, suburb, postcode);
+        setAddress(address);
     }
     
     /**
@@ -89,6 +92,17 @@ public class Customer {
         }
     }
     
+    public String getAddress() {
+        return this.address;
+    }
+    
+    public void setAddress(String address) {
+        if(address == null || address.trim().isEmpty()) {
+            System.out.println("Address cannot be empty");
+        } else {
+            this.address = address;
+        }
+    }
     /**
      * Adds a supplement to the customer's subscription.
      *

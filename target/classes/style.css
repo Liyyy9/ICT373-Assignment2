@@ -94,3 +94,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .clean-list .virtual-flow .sheet {
     -fx-background-color: transparent;
 }
+
+/* Information panel field labels */
+.info-label {
+    -fx-font-family: "Aptos";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+    -fx-fill: #334155;
+}
+
+/* Information panel field values */
+.info-value {
+    -fx-font-family: "Aptos";
+    -fx-font-size: 13px;
+    -fx-font-weight: normal;
+}
