@@ -2,10 +2,13 @@
  * Title: ICT373 Assignment 2
  * Author: Liyana Afiqah Binte Jazmi
  * Student ID: 35849414
- * Date: 08 Novemeber 2026
+ * Date: 08 November 2026
  * File Name: FXHeader.java
  * Purpose:
+ * Displays the application heading at the top of the window.
+ *
  * Assumptions:
+ * None.
  */
 
 package ict373.assignment2;
@@ -19,7 +22,7 @@ import javafx.scene.layout.Priority;
 
 
 /**
- * Represents [whatever this class represents].
+ * Builds the magazine service heading.
  *
  * @author Liyana Afiqah Binte Jazmi
  */

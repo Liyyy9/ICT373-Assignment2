@@ -1,0 +1,40 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/Users/ues/Downloads/TSA 2026/ICT373 Software Architectures/Assignment2/LiyanaAfiqah-35849414-A2/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/ues/Downloads/TSA 2026/ICT373 Software Architectures/Assignment2/LiyanaAfiqah-35849414-A2/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'LiyanaAfiqah-35849414-A2 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/ues/Downloads/TSA 2026/ICT373 Software Architectures/Assignment2/LiyanaAfiqah-35849414-A2/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'LiyanaAfiqah-35849414-A2 1.0-SNAPSHOT API'
+ict373.assignment2
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\src\main\java = 1793802681324
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\allclasses-frame.html = 1794097724360
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\allclasses-noframe.html = 1794097724361
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\constant-values.html = 1794097724261
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\deprecated-list.html = 1794097724357
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\help-doc.html = 1794097724366
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\index-all.html = 1794097724353
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\index.html = 1794097724363
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\overview-tree.html = 1794097724344
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\package-list = 1794097724243
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\script.js = 1794097724370
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\serialized-form.html = 1794097724273
+C:\Users\ues\Downloads\TSA 2026\ICT373 Software Architectures\Assignment2\LiyanaAfiqah-35849414-A2\target\reports\apidocs\stylesheet.css = 1794097724368

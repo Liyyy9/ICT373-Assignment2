@@ -1,30 +1,39 @@
 /*
- * Title: ICT373 Assignment 1 - Question 2
+ * Title: ICT373 Assignment 2
  * Author: Liyana Afiqah Binte Jazmi
  * Student ID: 35849414
- * Date: 04 October 2026
+ * Date: 08 November 2026
  * File Name: Customer.java
- * Purpose: Represents a basic customer of the magazine, storing their name, email, and subscribed supplements.
- * Assumptions: A customer must always have a non-empty name and email.
- * Input: None
- * Output: None
+ * Purpose:
+ * Stores a customer's contact details, address, supplements and start month.
+ *
+ * Assumptions:
+ * - Customer names and emails are expected to be non-empty.
  */
 package ict373.assignment2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.time.YearMonth;
 
 /**
- * Represents a customer who subscribes to the magazine.
- * Stores the customer's name, email, and chosen supplements.
- * This is the parent class for PayingCustomer and AssociateCustomer.
+ * Holds the details shared by paying and associate customers.
  *
  * @author Liyana Afiqah Binte Jazmi
  */
-public class Customer {
+public class Customer implements Serializable {
     private String name;
     private String email;
     private String address;
+    private int streetNumber;
+    private String streetName;
+    private String suburb;
+    private int postcode;
+    
     private ArrayList<Supplement> supplements = new ArrayList<>();
+    private YearMonth subscriptionStartMonth;
+    
+    private static final long serialVersionUID = 1L;
     
     /**
      * Creates a customer with default name and email.
@@ -38,12 +47,17 @@ public class Customer {
      *
      * @param name name of the customer
      * @param email email of the customer
+     * @param streetNumber number of the customer's street address
+     * @param streetName name of the customer's street
+     * @param suburb suburb where the customer lives
+     * @param postcode postcode for the customer's address
      */
     public Customer(String name, String email, int streetNumber, String streetName, String suburb, int postcode){
         setName(name);
         setEmail(email);
-        String address = String.format("%d %s, %s (%d)", streetNumber, streetName, suburb, postcode);
+        setAddressDetails(streetNumber, streetName, suburb, postcode);
         setAddress(address);
+        this.subscriptionStartMonth = YearMonth.now();
     }
     
     /**
@@ -61,7 +75,7 @@ public class Customer {
      * @param name the name to set
      */
     public void setName(String name) {
-        // Name cannot be empty.
+        // Keep the current name when the new value is blank.
         if(name == null || name.trim().isEmpty()){
             System.out.println("Name cannot be empty");
         } else {
@@ -84,7 +98,7 @@ public class Customer {
      * @param email the email to set
      */
     public void setEmail(String email){
-        // Email cannot be empty.
+        // Keep the current email when the new value is blank.
         if(email == null || email.trim().isEmpty()){
             System.out.println("Email cannot be empty");
         } else {
@@ -97,6 +111,7 @@ public class Customer {
     }
     
     public void setAddress(String address) {
+        // Do not replace a saved address with an empty value.
         if(address == null || address.trim().isEmpty()) {
             System.out.println("Address cannot be empty");
         } else {
@@ -128,6 +143,62 @@ public class Customer {
      */
     public ArrayList<Supplement> getSupplements() {
         return supplements;
+    }
+    
+    public YearMonth getSubscriptionStartMonth() {
+        return subscriptionStartMonth;
+    }
+
+    public void setSubscriptionStartMonth(YearMonth month) {
+        if (month != null) {
+            this.subscriptionStartMonth = month;
+        }
+    }
+    
+    public int getStreetNumber() {
+        return streetNumber;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public String getSuburb() {
+        return suburb;
+    }
+
+    public int getPostcode() {
+        return postcode;
+    }
+
+    public void setAddressDetails(
+            int streetNumber,
+            String streetName,
+            String suburb,
+            int postcode) {
+
+        // Check all required parts before changing the stored address.
+        if (streetNumber <= 0 || postcode <= 0
+                || streetName == null || streetName.trim().isEmpty()
+                || suburb == null || suburb.trim().isEmpty()) {
+
+            System.out.println("Invalid address details.");
+            return;
+        }
+
+        this.streetNumber = streetNumber;
+        this.streetName = streetName.trim();
+        this.suburb = suburb.trim();
+        this.postcode = postcode;
+
+        // Keep the display address in the same format as its separate fields.
+        this.address = String.format(
+                "%d %s, %s (%d)",
+                streetNumber,
+                this.streetName,
+                this.suburb,
+                postcode
+        );
     }
     
     @Override

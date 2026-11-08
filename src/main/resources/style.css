@@ -1,11 +1,6 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : Nov 4, 2026, 10:31:33 PM
-    Author     : ues
-*/
+/* =========================================================
+   1. GLOBAL STYLES AND SHARED PANELS
+   ========================================================= */
 
 .root {
     -fx-font-family: "Aptos";
@@ -38,6 +33,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: #334155;
 }
 
+/* =========================================================
+   2. MENU BAR
+   ========================================================= */
+
 /* Menu bar */
 .menu-bar {
     -fx-font-family: "Aptos";
@@ -51,6 +50,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .menu-bar .menu {
     -fx-padding: 5px 25px;
 }
+
+/* =========================================================
+   3. LISTS, INFORMATION AND BILLING DISPLAY
+   ========================================================= */
 
 /* Clean list */
 .clean-list {
@@ -109,4 +112,252 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-family: "Aptos";
     -fx-font-size: 13px;
     -fx-font-weight: normal;
+}
+
+.info-navigation {
+    -fx-padding: 10 20 10 20;
+    -fx-border-color: transparent transparent #dddddd transparent;
+}
+
+.nav-label {
+    -fx-text-fill: #555555;
+    -fx-cursor: hand;
+    -fx-padding: 5 10 5 10;
+}
+
+.nav-active {
+    -fx-text-fill: #16365c;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 5 10 5 10;
+    -fx-border-color: transparent transparent #16365c transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.billing-row {
+    -fx-padding: 3 0 3 0;
+}
+
+.billing-row .label {
+    -fx-text-fill: #333333;
+}
+
+.billing-total {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16365c;
+}
+
+.billing-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+.billing-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* =========================================================
+   4. SHARED FORM AND BILLING CONTROLS
+   ========================================================= */
+
+.action-button {
+    -fx-background-color: #17365D;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-padding: 9px 16px;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #285487;
+}
+
+.action-button:pressed {
+    -fx-background-color: #102844;
+}
+
+.action-button:disabled {
+    -fx-opacity: 0.5;
+}
+
+.billing-combo {
+    -fx-background-color: #F5F7FA;
+    -fx-border-color: #CED6E0;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-padding: 3px;
+    -fx-cursor: hand;
+}
+
+.billing-combo:hover {
+    -fx-border-color: #17365D;
+}
+
+.billing-combo:focused {
+    -fx-border-color: #285487;
+}
+
+.billing-combo .list-cell {
+    -fx-text-fill: #17365D;
+    -fx-background-color: transparent;
+}
+
+.billing-combo .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.billing-combo .arrow {
+    -fx-background-color: #17365D;
+}
+
+.billing-date {
+    -fx-text-fill: #17365D;
+    -fx-font-size: 12px;
+}
+
+/* =========================================================
+   5. CREATE MODE
+   Magazine, customer and supplement form styles.
+   ========================================================= */
+
+.create-text {
+    -fx-text-fill: #17365D;
+    -fx-font-size: 12px;
+}
+
+.create-customer-name {
+    -fx-text-fill: #17365D;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.create-secondary {
+    -fx-text-fill: #52647A;
+    -fx-font-size: 11px;
+}
+
+.create-checkbox {
+    -fx-text-fill: #17365D;
+    -fx-font-size: 12px;
+}
+
+
+/* =========================================================
+   6. EDIT AND MAIN NAVIGATION
+   ========================================================= */
+
+/* Edit workspace navigation buttons */
+.editor-nav-button {
+    -fx-background-color: #F2F5FA;
+    -fx-text-fill: #17365D;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-border-color: #D3DDE9;
+    -fx-border-radius: 5;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+
+.editor-nav-button:hover {
+    -fx-background-color: #E2EBF8;
+    -fx-border-color: #A8BFDF;
+}
+
+.editor-nav-button:selected {
+    -fx-background-color: #17365D;
+    -fx-text-fill: white;
+    -fx-border-color: #17365D;
+}
+
+.editor-nav-button:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+/* Main navigation bar */
+.main-navigation {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #D8E0EB transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-alignment: center-left;
+}
+
+/* Navigation buttons */
+.main-nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #52647C;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 22;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 3 0;
+    -fx-cursor: hand;
+}
+
+.main-nav-button:hover {
+    -fx-background-color: #F2F5FA;
+    -fx-text-fill: #17365D;
+}
+
+/* Currently selected mode */
+.main-nav-button.main-nav-active {
+    -fx-text-fill: #17365D;
+    -fx-border-color: transparent transparent #17365D transparent;
+    -fx-border-width: 0 0 3 0;
+}
+
+.main-nav-button:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* =========================================================
+   7. DELETE AND CSV IMPORT
+   ========================================================= */
+
+.delete-button {
+    -fx-background-color: #B42318;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 18;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.delete-button:hover {
+    -fx-background-color: #912018;
+}
+
+.csv-preview-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.csv-preview-scroll > .viewport {
+    -fx-background-color: white;
+}
+
+.csv-preview-content {
+    -fx-background-color: white;
+    -fx-padding: 0;
+}
+
+.csv-preview-content .label {
+    -fx-text-fill: #243B53;
+}
+
+.csv-preview-content .panel-heading {
+    -fx-text-fill: #17365D;
+    -fx-font-weight: bold;
 }

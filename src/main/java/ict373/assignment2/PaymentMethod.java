@@ -1,28 +1,30 @@
 /*
- * Title: ICT373 Assignment 1 - Question 2
+ * Title: ICT373 Assignment 2
  * Author: Liyana Afiqah Binte Jazmi
  * Student ID: 35849414
- * Date: 04 October 2026
+ * Date: 08 November 2026
  * File Name: PaymentMethod.java
- * Purpose: Represents the payment method used by a paying customer, either Credit Card or Direct Debit.
- * Assumptions: Type must be either 1 (Credit Card) or 2 (Direct Debit).
- * Input: None
- * Output: None
+ * Purpose:
+ * Stores the payment type and account number for a paying customer.
+ *
+ * Assumptions:
+ * - Type 1 means Credit Card and type 2 means Direct Debit.
  */
 
 package ict373.assignment2;
 
-import java.util.Scanner;
+import java.io.Serializable;
 
 /**
- * Represents a payment method for a paying customer.
- * Stores the payment type (Credit Card or Direct Debit) and the account number.
+ * Holds a customer's payment type and number.
  *
  * @author Liyana Afiqah Binte Jazmi
  */
-public class PaymentMethod {
+public class PaymentMethod implements Serializable {
     private int type;
     private String number;
+    
+    private static final long serialVersionUID = 1L;
     
     // Using int so the menu can show either 1 or 2 for credit/debit.
     // 1 = Credit, 2 = debit
@@ -52,7 +54,7 @@ public class PaymentMethod {
      * @param type payment type, must be 1 or 2
      */
     public void setType(int type){
-        // Type must be either 1 (Credit) or 2 (Debit).
+        // Store only the payment types used by the application's menu.
         if(type < 1 || type > 2){
             System.out.println("Invalid choice. Please choose either 1 or 2");
         } else {
@@ -75,7 +77,7 @@ public class PaymentMethod {
      * @param number the account or card number to set
      */
     public void setNumber(String number){
-        // Number cannot be empty.
+        // Keep the current number when the new value is blank.
         if(number == null || number.trim().isEmpty()){
             System.out.println("Please enter valid details");
         } else {

@@ -1,32 +1,34 @@
 /*
- * Title: ICT373 Assignment 1 - Question 2
+ * Title: ICT373 Assignment 2
  * Author: Liyana Afiqah Binte Jazmi
  * Student ID: 35849414
- * Date: 04 October 2026
+ * Date: 08 November 2026
  * File Name: Magazine.java
- * Purpose: Represents the magazine itself, storing the weekly cost, available supplements, and all customers.
- * Assumptions: The weekly cost cannot be less than 0.
- * Input: None
- * Output: None
+ * Purpose:
+ * Stores a magazine's name, weekly cost, supplements and customers.
+ *
+ * Assumptions:
+ * - The weekly cost cannot be less than zero.
  */
 
 package ict373.assignment2;
 
 import java.util.ArrayList;
-
-
+import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
- * Represents the magazine.
- * Stores the weekly cost, the list of available supplements,
- * and the list of customers subscribed to the magazine.
+ * Holds the data for one magazine and its subscribers.
  *
  * @author Liyana Afiqah Binte Jazmi
  */
-public class Magazine {
+public class Magazine implements Serializable{
+    private String name;
     private double weeklyCost;
     private ArrayList<Supplement> supplements = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
+    private static final long serialVersionUID = 1L;
+    private LocalDate dateCreated;
 
     /**
      * Creates a magazine with the given weekly cost.
@@ -35,6 +37,12 @@ public class Magazine {
      */
     public Magazine(double weeklyCost){
         setWeeklyCost(weeklyCost);
+        this.dateCreated = LocalDate.now();
+    }
+    
+    public Magazine(double weeklyCost, LocalDate dateCreated) {
+        setWeeklyCost(weeklyCost);
+        this.dateCreated = dateCreated;
     }
     
     /**
@@ -59,7 +67,7 @@ public class Magazine {
      * @param weeklyCost the weekly cost to set
      */
     public void setWeeklyCost(double weeklyCost){
-        // Weekly cost cannot be negative.
+        // Leave the current cost unchanged if the new value is negative.
         if(weeklyCost < 0){
             System.out.println("Weekly cost cannot be less than 0");
         } else {
@@ -119,5 +127,22 @@ public class Magazine {
      */
     public ArrayList<Customer> getCustomers() {
         return customers;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    @Override
+    public String toString() {
+        return name;
+    }
+    
+    public LocalDate getDateCreated(){
+        return dateCreated;
     }
 }

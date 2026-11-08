@@ -2,10 +2,13 @@
  * Title: ICT373 Assignment 2
  * Author: Liyana Afiqah Binte Jazmi
  * Student ID: 35849414
- * Date: 08 Novemeber 2026
+ * Date: 08 November 2026
  * File Name: FXLeftPanel.java
  * Purpose:
+ * Lists a magazine's supplements and customers for selection.
+ *
  * Assumptions:
+ * - Selecting a list item displays its details in the right panel.
  */
 
 package ict373.assignment2;
@@ -21,7 +24,7 @@ import javafx.scene.layout.VBox;
 
 
 /**
- * Represents [whatever this class represents].
+ * Shows the selected magazine's supplements and customers.
  *
  * @author Liyana Afiqah Binte Jazmi
  */
@@ -57,15 +60,17 @@ public class FXLeftPanel extends VBox {
         
         suppListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
             if(newValue != null) {
+                // Keep only one list selection active at a time.
                 custListView.getSelectionModel().clearSelection();
-                rightPanel.showSupplement(newValue);
+                rightPanel.showSupplement(newValue, this.magazine);
             }
         });
         
         custListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
             if(newValue != null) {
+                // Keep only one list selection active at a time.
                 suppListView.getSelectionModel().clearSelection();
-                rightPanel.showCustomer(newValue);
+                rightPanel.showCustomer(newValue, this.magazine);
             }
         });
         
@@ -100,5 +105,20 @@ public class FXLeftPanel extends VBox {
     
     public void refreshSupplements(){
         suppListView.getItems().setAll(magazine.getSupplements());
+    }
+    
+    public void setMagazine(Magazine magazine) {
+        this.magazine = magazine;
+
+        suppListView.getItems().clear();
+        custListView.getItems().clear();
+
+        if (magazine == null) {
+            // Keep both lists empty when no magazine is selected.
+            return;
+        }
+
+        suppListView.getItems().addAll(magazine.getSupplements());
+        custListView.getItems().addAll(magazine.getCustomers());
     }
 }

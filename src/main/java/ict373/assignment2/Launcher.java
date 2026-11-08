@@ -5,13 +5,17 @@
  * Date: 08 November 2026
  * File Name: Launcher.java
  * Purpose:
+ * Starts the JavaFX application and opens its main view.
+ *
  * Assumptions:
+ * None.
  */
 package ict373.assignment2;
 
 /**
+ * Launches the magazine service application.
  *
- * @author ues
+ * @author Liyana Afiqah Binte Jazmi
  */
 
 import javafx.application.Application;
@@ -21,6 +25,7 @@ public class Launcher extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // Create the main window after JavaFX starts.
         new MainView(primaryStage);
     }
 

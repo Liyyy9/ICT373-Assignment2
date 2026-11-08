@@ -1,23 +1,20 @@
 /*
- * Title: ICT373 Assignment 1 - Question 2
+ * Title: ICT373 Assignment 2
  * Author: Liyana Afiqah Binte Jazmi
  * Student ID: 35849414
- * Date: 04 October 2026
+ * Date: 08 November 2026
  * File Name: AssociateCustomer.java
- * Purpose: Represents an associate customer, who is linked to a paying customer and does not pay for the magazine themselves.
- * Assumptions: An associate customer must always be linked to one paying customer who covers their subscription.
- * Input: None
- * Output: None
+ * Purpose:
+ * Represents a customer whose magazine subscription is paid for by a paying customer.
+ *
+ * Assumptions:
+ * - The paying customer covers this customer's subscription.
  */
 
 package ict373.assignment2;
 
-import java.util.ArrayList;
-
 /**
- * Represents an associate customer.
- * An associate customer gets the magazine through a paying customer
- * and does not pay for their own subscription.
+ * Stores the paying customer linked to an associate customer's account.
  *
  * @author Liyana Afiqah Binte Jazmi
  */
@@ -29,6 +26,10 @@ public class AssociateCustomer extends Customer {
      *
      * @param name name of the associate customer
      * @param email email of the associate customer
+     * @param streetNumber number of the customer's street address
+     * @param streetName name of the customer's street
+     * @param suburb suburb where the customer lives
+     * @param postcode postcode for the customer's address
      * @param payingCustomer the paying customer who covers this associate's subscription
      */
     public AssociateCustomer(String name, String email, int streetNumber, String streetName, String suburb, int postcode, PayingCustomer payingCustomer) {
@@ -43,5 +44,9 @@ public class AssociateCustomer extends Customer {
      */
     public PayingCustomer getPayingCustomer(){
         return payingCustomer;
+    }
+    
+    public void setPayingCustomer(PayingCustomer payingCustomer) {
+        this.payingCustomer = payingCustomer;
     }
 }
